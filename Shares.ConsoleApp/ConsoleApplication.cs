@@ -22,6 +22,11 @@ namespace Shares.ConsoleApp
             this.logger = loggerFactory.CreateLogger<ConsoleApplication>();
         }
 
+        public ConsoleApplication(ILogger<ConsoleApplication> logger, ITradeService tradeService)
+        {
+            this.TradeService = tradeService;
+            this.logger = logger;
+        }
         public void Run(string inp)
         {
             this.logger.LogInformation("ConsoleApplication Run");
@@ -48,6 +53,7 @@ namespace Shares.ConsoleApp
             }
         }
 
+        // TODO: update to use interface rather than Console..
         private void DisplayResults(BestTradeResult result)
         {
             foreach (var trade in result.Trades)
@@ -57,4 +63,5 @@ namespace Shares.ConsoleApp
             Console.WriteLine();
         }
     }
+
 }

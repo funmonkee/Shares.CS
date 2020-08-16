@@ -11,6 +11,16 @@
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
+    <PackageReference Include="fluentassertions" Version="5.10.3" />
+    <PackageReference Include="moq" Version="4.14.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.7" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shares.Library\Shares.Library.csproj" />
+    <ProjectReference Include="..\Shares.ConsoleApp\Shares.ConsoleApp.csproj" />
   </ItemGroup>
 
 </Project>
