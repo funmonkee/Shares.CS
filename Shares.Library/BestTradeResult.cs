@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Shares.Library
 {
-    public class BestTradeResult 
+    public class BestTradeResult
     {
         public List<Trade> Trades { get; private set; }
 
@@ -12,12 +12,12 @@ namespace Shares.Library
 
         private BestTradeResult()
         {
-            this.Trades = new List<Trade>();    
+            this.Trades = new List<Trade>();
         }
 
         public BestTradeResult(SharePrice buy, SharePrice sell)
         {
-            this.Trades = new List<Trade>{ new Trade(buy, sell) };
+            this.Trades = new List<Trade> { new Trade(buy, sell) };
         }
 
         public static BestTradeResult BuildEmptyResult()

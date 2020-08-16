@@ -26,17 +26,20 @@ namespace Shares.ConsoleApp
 
             var loggerFactory = BuildLoggerFactory();
             var logger = loggerFactory.CreateLogger<Program>();
-            
+
             try {
                 var serviceProvider = BuildServices(loggerFactory);
 
+                // TODO: validation on input
                 var data = args[0];
+
                 var app = serviceProvider.GetService<IConsoleApplication>() as IConsoleApplication;
                 app.Run(data);
             }
             catch(Exception e)
             {
-                logger.LogError($"broken {e.Message}");
+                logger.LogError($"{e.Message}");
+                Console.WriteLine($"Error {e.Message}");
             }
         }
 

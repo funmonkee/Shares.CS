@@ -37,7 +37,33 @@ namespace Shares.ConsoleApp.UnitTest
             sut.Run("1,2,3,4");
 
             // assert
+            // TODO: remove brittle string comparison
             Assert.Equal("0(1.00),3(4.00) \n", output.ToString());
         }
+
+        [Fact]
+        public void GivenEmptySampleData_WhenRunCalled_ThenOutputAsExpected()
+        {
+            // arrange
+            var mockLogger = new Mock<ILogger<ConsoleApplication>>();
+            var mockService = new Mock<ITradeService>();
+            
+            var buy = new SharePrice(0,1.0F);
+            var sell = new SharePrice(3, 4.0F);
+            var bestResult = new BestTradeResult(buy,sell);
+
+            mockService
+                .Setup(ms => ms.GetBestTrade(It.Is<TradeDataSet>(d => true)))
+                .Returns(bestResult);
+            
+            var output = new StringWriter();
+            Console.SetOut(output);
+
+            var sut = new ConsoleApplication(mockLogger.Object, mockService.Object);
+
+            // act + assert
+            Assert.Throws<System.FormatException>(() => sut.Run(""));
+        }
+
     }
 }

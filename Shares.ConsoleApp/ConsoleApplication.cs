@@ -27,11 +27,12 @@ namespace Shares.ConsoleApp
             this.TradeService = tradeService;
             this.logger = logger;
         }
-        public void Run(string inp)
+        public void Run(string dataString)
         {
             this.logger.LogInformation("ConsoleApplication Run");
 
-            var pricesStringArray = inp.Split(',').ToList<string>();
+            // TODO: update this for validation and error handling
+            var pricesStringArray = dataString.Split(',').ToList<string>();
             var pricesAsFloatArray = pricesStringArray.Select(x => float.Parse(x)).ToArray();
             var tradeDataSet = new TradeDataSet(pricesAsFloatArray);
 
@@ -53,7 +54,7 @@ namespace Shares.ConsoleApp
             }
         }
 
-        // TODO: update to use interface rather than Console..
+        // TODO: update to use interface rather than Console.. inject an outputer component
         private void DisplayResults(BestTradeResult result)
         {
             foreach (var trade in result.Trades)
