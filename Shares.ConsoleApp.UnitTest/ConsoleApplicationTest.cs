@@ -5,7 +5,7 @@ namespace Shares.ConsoleApp.UnitTest
 {
     public class ConsoleApplicationTest
     {
-        [Fact]
+        [Fact(Skip = "Not implemented")]
         public void Test1()
         {
 
