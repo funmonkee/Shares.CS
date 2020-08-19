@@ -73,8 +73,11 @@ NOTES:
 
 I used Visual Studio vode and .Net Core SDK on a Macbook to build this solution.
 Various VS Code extensions to support .Net development installed.
-I normally use Visual Stido 2019 and MSUnit for tests; However, I tried out XUnit today.
-I also used GIT locally; and could push it to a remote repository, if required.
+I normally use Visual Studio 2019 and MSUnit for tests; However, I tried out XUnit today.
+
+I also used GIT locally; and pushed it to a remote repository:
+    
+    https://github.com/funmonkee/Shares.CS.git
 
 
 
