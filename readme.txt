@@ -9,7 +9,7 @@ Use the following command to check the SDK is installed and version 3.1 is avail
 
     dotnet --info
 
-Extract the project. in ther Shares.ConsoleApp folder enter 
+Extract the solution. Then, in the Shares.ConsoleApp folder enter 
 
     dotnet run 1,2,3,4,5 
 
@@ -29,7 +29,7 @@ There are 4 projects in the solution
 
 NOTES:
 
-The challenge scope is quite small, however within the time spent
+The challenge scope is quite small, however within the time spent..
     Aim to ensure components are single responsibility /SRP
         - with the exception of the ConsoleApp. If I spent more time on this I would
         remove dependency on the System.Console. And inject an outputer. This would
@@ -47,19 +47,19 @@ The challenge scope is quite small, however within the time spent
     addition to the Single trade option. I would have added additional interface,
     for this extension and used the DI to register implementations. During run-time
     I would request the service provider for a ITraderService, that's also is Multi-bid
-    capable implementation. 
+    capable implementation.  This would have been an example of extension.
 
-    Although, the example code is small I used the .Net Core built in DI to configure
+    Although, the example code is small I used the .Net Core built-in DI to configure
     injection of logging and dependent services.
 
-    I used Xunit test for this project.
+    I used XUnit test for this project.
     Moq was used for mocking depenencies.
 
 FURTHER DEVELOPMENT
 
 Validation of user input and between components, is very basic (hardly any).   
 Given more time, I would take a dependency on the FluentValidation framework.   
-The FV provides a cleaner appeach of validation and helps ensure SRP.
+The FV provides a cleaner appeach for validation and helps ensure SRP.
 
 Handling validation errors and technical errors, would be another area, I would improve.
 
@@ -68,6 +68,15 @@ Again, given more time and a view to building the functionality I would adopt th
 MediatR library.  Aside from the benefits of using a command pattern, the MediatR 
 library also includes a behaviour pipeline; This can be used to add 'middlewares',
 for validation, logging, error handling and security etc.
+
+Although the solution is split into projects; each project/namespace should be further
+split into folders.  Since the solution was so small I did not do this. Generally, I
+structure a project using the following folders, for recent .Net core APIs etc
+/Project
+    /Extensions
+    /Features
+    /Infrastructure
+    /etc
 
 NOTES:
 
